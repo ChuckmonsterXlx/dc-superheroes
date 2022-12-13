@@ -1,57 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import React, {useEffect} from 'react';
 import './App.css';
+import {useDispatch} from 'react-redux'
+// import {apiJSON} from './features/characters/charactersSlice'
+import Navbar from './components/navbar/Navbar';
+import Characters from './components/characters/Characters'
+import { characterApiSlice } from './features/characters/charactersSlice';
+import SuperheroesDetails from './components/superheroesdetails/SuperheroesDetails';
+
+
 
 function App() {
+  const dispatch = useDispatch();
+  // const characterApiState = useSelector(state  => state.characterApi);
+
+  // console.log(characterApiState);
+
+  const initialUrl = 'https://my-json-server.typicode.com/Isaacmeedinaa/dc-superheroes/superheroes';
+  // console.log(initialUrl);
+  const fetchCharacters = () => {
+    fetch(initialUrl)
+      .then(response => response.json())
+      .then(data => SendData(data))
+      .catch(error => console.log(error))
+  };
+
+  function SendData(x) {
+    dispatch(characterApiSlice.actions.setApiJSON({apiToJSON:x}))
+  }
+
+  useEffect(() => {
+    fetchCharacters()
+  })
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route exact path="/contacto" element={<h1>pagina de contacto</h1>}/>
+        <Route path="/superheroes/:superheroesID" element={<SuperheroesDetails />} />
+        <Route exact path="/" element={<Characters />} />
+
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </>
   );
 }
 

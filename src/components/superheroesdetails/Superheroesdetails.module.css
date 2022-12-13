@@ -1,0 +1,66 @@
+.divMainContainer {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.divContainer {
+    display: flex;
+    padding: 0px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+    background: #000000cf;
+    color: white;
+}
+.divImg {
+    min-height: 300px;
+    width: 50%;
+    background-size: cover;
+    background-position: center top;
+    border-radius: 10px;
+}
+.divContent {
+    width: 60%;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.btnSD {
+    margin: 30px 0px;
+    background: #212529;
+    border-radius: 5px;
+    padding: 2px 10px;
+    color: white;
+    text-decoration: none;
+}
+.btnSD:hover {
+    color: #9898ff;
+}
+
+@media only screen and (max-width : 979px){
+
+}
+
+@media only screen and (max-width : 767px){
+	
+	
+}
+
+@media only screen and (max-width : 600px){
+	
+	
+}
+
+@media only screen and (max-width : 480px){
+    .divContainer {
+        flex-direction: column;
+        width: 100%;
+    }
+    .divImg {
+        width: 100%;
+    }
+    .divContent {
+        width: 100%;
+    }
+}

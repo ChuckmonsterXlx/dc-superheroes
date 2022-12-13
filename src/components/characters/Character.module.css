@@ -1,0 +1,43 @@
+.colCards {
+    min-height: 250px;
+    padding: 10px;
+}
+.divCard {
+    height: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background: #30141afa;
+    color: white;
+}
+.colImg {
+    height: 100%;
+    background-size: cover;
+    border-radius: 4px;
+}
+.btnSD {
+    background: #212529;
+    border-radius: 5px;
+    padding: 2px 10px;
+    color: white;
+    text-decoration: none;
+}
+.btnSD:hover {
+    color: #9898ff;
+}
+
+@media only screen and (max-width : 979px){
+
+}
+
+@media only screen and (max-width : 767px){
+	
+	
+}
+
+@media only screen and (max-width : 600px){
+	
+	
+}
+
+@media only screen and (max-width : 480px){
+
+}

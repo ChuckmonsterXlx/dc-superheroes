@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#root {
+  background: url(https://images5.alphacoders.com/109/1097979.jpg);
+  min-height: 700px;
+}
